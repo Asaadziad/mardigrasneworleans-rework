@@ -1,0 +1,67 @@
+/** Google fonts **/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+/** Reset default **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  border-bottom: 5px solid rgba(242, 204, 15, 0.7);
+  background-image: url("/img/bg-img.jpg");
+  background-size: cover;
+  width: 100vw;
+}
+
+h1,
+h2 {
+  font-family: "Pattaya", "Henny Penny" "b";
+}
+
+.container {
+  background-color: #f2cc0f;
+  color: #9453a6;
+  border: 5px solid #8cbf3f;
+  box-shadow: inset 0 0 5px #8cbf3f;
+  border-radius: 5px;
+}
+
+/** Mixins Media Queries **/
+.navbar ul {
+  list-style-type: none;
+}
+@media (max-width: 992px) {
+  .navbar ul li.nav-item {
+    margin: 0 auto;
+  }
+}
+.navbar ul li.nav-item a {
+  display: inline-block;
+  text-decoration: none;
+  color: #f2cc0f;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.navbar ul li.nav-item a:hover {
+  box-shadow: inset 0 -2px 0 0 #f2cc0f;
+}
+
+.container-fluid.navContainer {
+  background-color: rgba(13, 13, 13, 0.8);
+  width: 100vw;
+}
+
+.carousel-item img {
+  height: 500px;
+}
+
+.navbar-toggler {
+  background-color: #f2cc0f;
+}
