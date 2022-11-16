@@ -1,5 +1,9 @@
 /** Google fonts **/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+$pallet-gold: #f2cc0f;
+$pallet-black: rgb(13, 13, 13);
+$pallet-white: rgb(242, 242, 242);
 
 /** Reset default **/
 * {
@@ -8,28 +12,11 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-}
-header {
-  border-bottom: 5px solid rgba(242, 204, 15, 0.7);
-  background-image: url("/img/bg-img.jpg");
-  background-size: cover;
-  width: 100vw;
-}
 h1,
 h2 {
   font-family: "Pattaya", "Henny Penny" "b";
 }
-.container {
-  background-color: #f2cc0f;
-  color: #9453a6;
-  border: 5px solid #8cbf3f;
-  box-shadow: inset 0 0 5px #8cbf3f;
-  border-radius: 5px;
-}
 
-/** Mixins Media Queries **/
 @mixin mobile {
   @media (max-width: 992px) {
     @content;
