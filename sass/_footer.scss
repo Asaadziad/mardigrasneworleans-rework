@@ -1,6 +1,7 @@
 footer {
   display: grid;
   grid-template-columns: auto auto;
+  height: 300px;
   margin-top: 1rem;
   border-top: 1px solid $pallet-gold;
   background-color: rgba(13, 13, 13, 0.8);

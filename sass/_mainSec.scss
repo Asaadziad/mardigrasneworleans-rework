@@ -1,0 +1,47 @@
+.sponsors {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  & .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    & .sponsorCard {
+      overflow: hidden;
+    }
+    .btn {
+      &.btn-primary {
+        background-color: $pallet-primary;
+        border: 1px solid $pallet-primary;
+      }
+    }
+  }
+
+  & .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    & .loadedItem {
+      height: 20px;
+      width: 20px;
+      background-color: rgb(13, 13, 13, 0.8);
+      border-radius: 50%;
+      transition: all 0.5s ease-in-out;
+      &.active {
+        background-color: $pallet-gold;
+        transform: scale(1.5);
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

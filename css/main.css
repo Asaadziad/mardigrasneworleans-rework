@@ -12,68 +12,6 @@ h2 {
   font-family: "Pattaya", "Henny Penny" "b";
 }
 
-@media (max-width: 992px) {
-  .nav-container .navbar-custom {
-    display: none;
-  }
-}
-.nav-container .navbar-custom ul {
-  display: grid;
-  grid-template-columns: repeat(7, auto);
-  background-color: rgba(13, 13, 13, 0.8);
-  border-bottom: 2px solid #f2cc0f;
-  padding: 0;
-  margin: 0;
-}
-.nav-container .navbar-custom ul li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
-  width: auto;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  transition: all 0.5s ease-in-out;
-}
-.nav-container .navbar-custom ul li a {
-  text-decoration: none;
-  color: rgb(242, 242, 242);
-  font-size: medium;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out;
-}
-@media (max-width: 992px) {
-  .nav-container .navbar-custom ul li a {
-    font-size: small;
-  }
-}
-.nav-container .navbar-custom ul li.item0 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-.nav-container .navbar-custom ul li.item4 {
-  grid-column-start: 6;
-  grid-column-end: 7;
-}
-.nav-container .navbar-custom ul li:hover:not(.nav-brand-logo) {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  box-shadow: inset 0 0 4px 4px rgba(13, 13, 13, 0.8);
-  background-color: rgba(13, 13, 13, 0.5);
-  cursor: pointer;
-}
-.nav-container .navbar-custom ul li:hover:not(.nav-brand-logo) a {
-  color: #f2cc0f;
-}
-
-.nav-brand-logo {
-  height: 120px;
-  transform: translateY(20px);
-  transition: all 1s ease-in-out;
-  z-index: 1;
-}
-
 .slider .slider-item {
   width: 100vw;
   max-height: 600px;
@@ -85,9 +23,109 @@ h2 {
   }
 }
 
+@media (max-width: 992px) {
+  .navbar .navbar-collapse .navbar-nav .nav-item.logo {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .navbar {
+    height: 90px;
+  }
+  .navbar .navbar-collapse {
+    justify-content: center;
+  }
+  .navbar .navbar-collapse .navbar-nav {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+    height: 90px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: box-shadow 0.5s ease-in-out;
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item.logo img {
+    z-index: 1;
+    width: 100px;
+    transform: translateY(40px);
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item.logo:hover {
+    z-index: 1;
+    filter: drop-shadow(0 0 10px #f2cc0f);
+    cursor: pointer;
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item.item00 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item:hover:not(.nav-item.logo) {
+    box-shadow: inset 0 0 10px 0 #f2cc0f;
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item:hover:not(.nav-item.logo) a {
+    color: #f2cc0f;
+  }
+}
+
+@media (max-width: 992px) {
+  .slider {
+    display: none;
+  }
+}
+.sponsors {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+}
+.sponsors .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sponsors .cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.sponsors .cards .sponsorCard {
+  overflow: hidden;
+}
+.sponsors .cards .btn.btn-primary {
+  background-color: #9453a6;
+  border: 1px solid #9453a6;
+}
+.sponsors .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.sponsors .loading .loadedItem {
+  height: 20px;
+  width: 20px;
+  background-color: rgba(13, 13, 13, 0.8);
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+.sponsors .loading .loadedItem.active {
+  background-color: #f2cc0f;
+  transform: scale(1.5);
+}
+.sponsors .loading .loadedItem:hover {
+  cursor: pointer;
+}
+
 footer {
   display: grid;
   grid-template-columns: auto auto;
+  height: 300px;
   margin-top: 1rem;
   border-top: 1px solid #f2cc0f;
   background-color: rgba(13, 13, 13, 0.8);
