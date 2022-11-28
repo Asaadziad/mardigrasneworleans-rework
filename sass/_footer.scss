@@ -1,9 +1,43 @@
 footer {
   display: grid;
+  position: relative;
   grid-template-columns: auto auto;
   height: 300px;
   margin-top: 1rem;
   border-top: 1px solid $pallet-gold;
   background-color: rgba(13, 13, 13, 0.8);
   color: $pallet-white;
+  & .socials {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -30px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: $pallet-gold;
+    border: 3px solid $pallet-primary;
+    font-size: x-large;
+    font-weight: bold;
+    transition: box-shadow 0.5s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 15px 0 $pallet-primary;
+    }
+  }
+}
+
+.container {
+  &.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.footerLinks {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+  }
 }

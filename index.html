@@ -10,6 +10,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
     <title>Mardi Gras New Orleans</title>
   </head>
   <body>
@@ -26,46 +30,27 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- <a class="navbar-brand" href="#">Navbar</a>-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item item00">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item logo">
-              <img src="img/logo.png" />
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Media</a
-              >
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                More
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">FAQ</a></li>
-                <li><a class="dropdown-item" href="#">Contact</a></li>
-              </ul>
-            </li>
-          </ul>
+          <ul class="navbar-nav" id="nav-items"></ul>
         </div>
       </div>
     </nav>
 
     <header>
-      <div class="slider">
+      <div class="bg-hidden">
+        <img src="img/bg-img.jpg" />
+      </div>
+      <div class="slider" id="slider">
+        <div class="book-item">
+          <div class="clock-name"><h2>Mardi Gras Count Down</h2></div>
+          <div class="clock">
+            <div class="clock-cell" id="days"></div>
+            <div class="clock-cell" id="hours"></div>
+            <div class="clock-cell" id="minutes"></div>
+            <div class="clock-cell" id="seconds"></div>
+          </div>
+        </div>
+
         <div
           id="carouselExampleDark"
           class="carousel carousel-dark slide"
@@ -176,20 +161,61 @@
       <div class="container mt-5 sponsors">
         <div class="header">
           <h1>Our sponsors</h1>
-          <span>Add your name</span>
+          <button class="btn btn-success">Sponsor Us</button>
         </div>
         <div class="cards" id="sponsors"></div>
-        <div class="loading" id="loadingBar">
-          <div class="loadedItem"></div>
-          <div class="loadedItem active"></div>
-          <div class="loadedItem"></div>
-        </div>
+        <div class="loading" id="loadingBar"></div>
+      </div>
+      <div class="container-fluid mt-5 aboutSec gx-0">
+        <section class="aSec">
+          <h2>Did you know?</h2>
+          <p>
+            The first record of Mardi Gras being celebrated in Louisiana was at
+            the mouth of the Mississippi River in what is now lower Plaquemines
+            Parish, Louisiana, on March 2, 1699. Iberville, Bienville, and their
+            men celebrated it as part of an observance of Catholic practice
+          </p>
+          <p>
+            The date of the first celebration of the festivities in New Orleans
+            is unknown.
+          </p>
+        </section>
+        <section class="aSec">
+          <h2>Covid 19</h2>
+          <p>
+            Unknown to the participants and local leaders at the time, the 2020
+            Carnival season (with parades running from January through Mardi
+            Gras Day on February 25) coincided with increasing spread of
+            coronavirus disease 2019 (COVID-19) in the United States as part of
+            a global epidemic.[14] At the time, the disease was actively being
+            dismissed as a major public health threat by President Donald Trump
+            and his administration.
+          </p>
+        </section>
+        <section class="aSec">
+          <h2>Traditions</h2>
+          <p>
+            The colors traditionally associated with Mardi Gras in New Orleans
+            are purple, green, and gold. The colors were first specified in
+            proclamations by the Rex organization during the lead-up to their
+            inaugural parade in 1872, suggesting that balconies be draped in
+            banners of these colors. It is unknown why these specific colors
+            were chosen; some accounts suggest that they were initially selected
+            solely on their aesthetic appeal, as opposed to any true symbolism.
+          </p>
+          <p>
+            Errol Laborde, author of Marched the Day God: A History of the Rex
+            Organization, presented a theory that the colors were based on
+            heraldry: all three colors correspond to a heraldic tincture,
+          </p>
+        </section>
       </div>
     </main>
 
     <footer class="mt-5" id="footer"></footer>
 
     <script src="js/main.js"></script>
+    <script src="js/misc.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>

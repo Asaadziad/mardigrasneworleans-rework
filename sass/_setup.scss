@@ -1,16 +1,20 @@
 /** Google fonts **/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
-$pallet-gold: #f2cc0f;
+$pallet-gold: rgb(242, 204, 15);
 $pallet-black: rgb(13, 13, 13);
 $pallet-white: rgb(242, 242, 242);
-$pallet-primary: #9453a6;
+$pallet-primary: rgb(148, 83, 166);
 
 /** Reset default **/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: $pallet-white;
 }
 
 h1,
@@ -26,5 +30,23 @@ h2 {
 @mixin desktop {
   @media (min-width: 992px) {
     @content;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

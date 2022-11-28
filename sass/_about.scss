@@ -1,0 +1,38 @@
+.aSec {
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  & .tweetImg {
+    margin-left: 40px;
+    & img {
+      width: 250px;
+      height: 300px;
+      border-radius: 30%;
+      transition: transform 0.5s ease-in-out;
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+  }
+  & .tweetParagraph {
+    overflow: hidden;
+    margin-right: 40px;
+  }
+  @include mobile {
+    overflow: hidden;
+    & .tweetParagraph {
+      margin-top: 10px;
+      margin-right: 40px;
+    }
+  }
+}
+
+.aboutUsTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
