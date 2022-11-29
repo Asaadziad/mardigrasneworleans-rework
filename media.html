@@ -47,12 +47,29 @@
             src="https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27453777051717876762178034951983406178765426n_621948a9ca7d9.jpg"
             class="mainImg"
             id="mainImg"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            onclick="openModal();currentSlide(1)"
           />
         </div>
         <div class="mediaContainer" id="mediaContainer"></div>
       </div>
+      <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <h1>test</h1>
+          <img
+            src="https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27453777051717876762178034951983406178765426n_621948a9ca7d9.jpg"
+            class="mainImg"
+            id="mainImg"
+            onclick="openModal();currentSlide(1)"
+          />
+          
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+          <div class="caption-container">
+            <p id="caption">caption here</p>
+          </div>
+        </div>
     </main>
     <footer class="mt-5" id="footer"></footer>
     <script src="js/main.js"></script>
