@@ -314,11 +314,23 @@ h2 {
 .mediaHeader {
   height: 600px;
   background-color: rgba(242, 204, 15, 0.7);
-  color: rgb(148, 83, 166);
+  background-image: url("https://www.mardigrasneworleans.com/thumb/1600/778/templates/client/imagesNew/xhome-header1.jpg.pagespeed.ic.39DcPhyq8Y.webp");
+  background-size: cover;
+  opacity: 0.8;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.mediaHeader .mediaTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: rgb(148, 83, 166);
+  border: 1px solid rgb(242, 242, 242);
+  border-radius: 5px;
+  background-color: rgba(242, 242, 242, 0.7);
 }
 
 .mediaContainer {
@@ -389,6 +401,9 @@ h2 {
 .modal .modal-content .prev:hover,
 .modal .modal-content .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+.modal .modal-content img {
+  max-height: 700px;
 }
 .modal .modal-content .next {
   right: 0;

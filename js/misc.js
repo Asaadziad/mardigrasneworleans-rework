@@ -184,7 +184,7 @@ function loadMedia() {
   let numOfPics = mediaImages.length;
 
   for (let i = 0; i < numOfPics; i++) {
-    media.innerHTML += `<img src="${mediaImages[i]}" id="img${i}">`;
+    media.innerHTML += `<img src="${mediaImages[i]}" id="img${i}" alt="hell of a ride" onclick="openModal();currentSlide(${i})">`;
   }
 }
 
@@ -198,7 +198,7 @@ function closeModal() {
   document.getElementById("myModal").style.display = "none";
 }
 
-var slideIndex = 1;
+let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
@@ -210,23 +210,17 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {
-    slideIndex = 1;
+  let i;
+  let slide = document.querySelector(".mainImgSlide");
+  let captionText = document.getElementById("caption");
+  if (slideIndex >= mediaImages.length) {
+    slideIndex = mediaImages.length - 1;
   }
-  if (n < 1) {
-    slideIndex = slides.length;
+  if (slideIndex < 0) {
+    slideIndex = 0;
   }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  captionText.innerHTML = dots[slideIndex - 1].alt;
+  slide.setAttribute("src", mediaImages[slideIndex]);
+  captionText.innerHTML = document
+    .getElementById(`img${slideIndex}`)
+    .getAttribute("alt");
 }
