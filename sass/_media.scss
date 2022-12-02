@@ -26,10 +26,19 @@
 }
 
 .mediaContainer {
+  overflow: hidden;
   & img {
     width: 100px;
     height: 100px;
     padding: 10px;
+    margin: 10px;
+    transition: all 0.7s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      filter: drop-shadow(0 0 10px $pallet-primary);
+      transform: scale(1.5);
+    }
   }
   overflow-x: scroll;
 }

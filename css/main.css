@@ -334,12 +334,20 @@ h2 {
 }
 
 .mediaContainer {
+  overflow: hidden;
   overflow-x: scroll;
 }
 .mediaContainer img {
   width: 100px;
   height: 100px;
   padding: 10px;
+  margin: 10px;
+  transition: all 0.7s ease-in-out;
+}
+.mediaContainer img:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgb(148, 83, 166));
+  transform: scale(1.5);
 }
 
 .mainImgContainer .mainImg {

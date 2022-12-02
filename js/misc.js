@@ -177,6 +177,18 @@ const mediaImages = [
   "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/IMG2704_621f92e64d87c.JPG",
   "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/14883683539788971921735301275032513756737405n_60ba8e5cd3445.png",
   "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/6022fd91641c5_60ba90e143dd0.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27465413951833144417317937913136660801391717n_62194ca3e3c5f.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27465413951833106250655081390922838568631027n_62194ca3eecca.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27465998651833137950651915182122547040486862n_62194ca4028a6.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/2746885505183315585065012888122147304897682n_62194ca6b1c89.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27466203251833141783984863598515266914470958n_62194ca4b55e9.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27471132251833151217317252142993027637517741n_62194ca8aed66.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27472675151833120150653694714307293047420506n_62194cacbc841.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/funnyfacen_6219551179a59.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27483904251833091117323262085020840667905313n_62194caeba526.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27481713051833097717322606506106785177915590n_62194f2322a93.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27480911651833104917321886803205523260222309n_62194cadc72f1.jpg",
+  "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27472392851833108417321538367584494660307015n_62194cabb8e98.jpg",
 ];
 function loadMedia() {
   const media = document.getElementById("mediaContainer");
