@@ -191,13 +191,15 @@ const mediaImages = [
   "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27480911651833104917321886803205523260222309n_62194cadc72f1.jpg",
   "https://www.mardigrasneworleans.com/constrain/1200/800/uploads/gallery/27472392851833108417321538367584494660307015n_62194cabb8e98.jpg",
 ];
+const mediaNames = ["Mardi Gras New Orleans"];
+const mediaAlts = ["Mardi Gras New Orleans photo"];
 function loadMedia() {
   const media = document.getElementById("mediaContainer");
   if (!media) return;
   let numOfPics = mediaImages.length;
 
   for (let i = 0; i < numOfPics; i++) {
-    media.innerHTML += `<img src="${mediaImages[i]}" id="img${i}" alt="hell of a ride" onclick="openModal();currentSlide(${i})">`;
+    media.innerHTML += `<img src="${mediaImages[i]}" id="img${i}" alt="${mediaAlts[0]}" onclick="openModal();currentSlide(${i})">`;
   }
 }
 
@@ -226,14 +228,17 @@ function showSlides(n) {
   let i;
   let slide = document.querySelector(".mainImgSlide");
   let captionText = document.getElementById("caption");
-  if (!slide || !captionText) return;
+  let mediaName = document.getElementById("mediaName");
+  if (!slide || !captionText || !mediaName) return;
   if (slideIndex >= mediaImages.length) {
     slideIndex = mediaImages.length - 1;
   }
   if (slideIndex < 0) {
     slideIndex = 0;
   }
+
   slide.setAttribute("src", mediaImages[slideIndex]);
+  mediaName.innerHTML = mediaNames[0];
   captionText.innerHTML = document
     .getElementById(`img${slideIndex}`)
     .getAttribute("alt");
