@@ -1,5 +1,16 @@
+const navObject = function (name, link) {
+  this.name = name;
+  this.link = link;
+  this.get = function (propName) {
+    return this[propName];
+  };
+  this.set = function (propName, value) {
+    this[propName] = value;
+  };
+};
 function loadNav() {
   const navItems = ["Home", "About", "LOGO HERE", "Media", "More"];
+  const navLinks = ["/index.html", "/about.html", "#", "/media.html"];
   const nav = document.getElementById("nav-items");
   if (nav == null) return;
   for (let index in navItems) {
@@ -19,13 +30,15 @@ function loadNav() {
         More
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">FAQ</a></li>
-        <li><a class="dropdown-item" href="#">Contact</a></li>
+        <li><a class="dropdown-item" href="/faq.html">FAQ</a></li>
+        <li><a class="dropdown-item" href="/contact.html">Contact</a></li>
       </ul>
     </li>`;
     } else {
       nav.innerHTML +=
-        "<li class='nav-item'><a class='nav-link' href='#'>" +
+        "<li class='nav-item'><a class='nav-link' href='" +
+        navLinks[index] +
+        "'>" +
         navItems[index] +
         "</a></li>";
     }

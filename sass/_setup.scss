@@ -22,6 +22,21 @@ h2 {
   font-family: "Pattaya", "Henny Penny" "b";
 }
 
+button {
+  &.btn {
+    &.btn-primary {
+      background-color: $pallet-primary;
+      border: 1px solid $pallet-primary;
+
+      &:hover {
+        background-color: $pallet-primary;
+        border: 1px solid $pallet-primary;
+        box-shadow: 0 0 10px 0 $pallet-primary;
+      }
+    }
+  }
+}
+
 @mixin mobile {
   @media (max-width: 992px) {
     @content;

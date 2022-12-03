@@ -16,6 +16,16 @@ h2 {
   font-family: "Pattaya", "Henny Penny" "b";
 }
 
+button.btn.btn-primary {
+  background-color: rgb(148, 83, 166);
+  border: 1px solid rgb(148, 83, 166);
+}
+button.btn.btn-primary:hover {
+  background-color: rgb(148, 83, 166);
+  border: 1px solid rgb(148, 83, 166);
+  box-shadow: 0 0 10px 0 rgb(148, 83, 166);
+}
+
 @-webkit-keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -416,6 +426,11 @@ h2 {
 .modal .modal-content .next {
   right: 0;
   border-radius: 3px 0 0 3px;
+}
+
+.btn.btn-primary {
+  background-color: rgb(148, 83, 166);
+  border: 1px solid rgb(148, 83, 166);
 }
 
 footer {

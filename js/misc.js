@@ -112,6 +112,7 @@ function loadAboutPage() {
 }
 
 window.addEventListener("resize", function () {
+  loadContactForm();
   updateSponsorSlides();
   renderSponsors();
   const loadingBtns = document.querySelectorAll(".loadedItem");
@@ -225,6 +226,7 @@ function showSlides(n) {
   let i;
   let slide = document.querySelector(".mainImgSlide");
   let captionText = document.getElementById("caption");
+  if (!slide || !captionText) return;
   if (slideIndex >= mediaImages.length) {
     slideIndex = mediaImages.length - 1;
   }
@@ -236,3 +238,120 @@ function showSlides(n) {
     .getElementById(`img${slideIndex}`)
     .getAttribute("alt");
 }
+
+const infoItem = function (name, info, helpMsg, type) {
+  this.name = name;
+  this.info = info;
+  this.helpMsg = helpMsg;
+  this.type = type;
+  this.get = function (propName) {
+    return this[propName];
+  };
+  this.set = function (propName, value) {
+    this[propName] = value;
+  };
+};
+function loadContactForm() {
+  const cForm = document.getElementById("cform");
+  const infoRequired = [
+    new infoItem("First name", "firstName", "", "name"),
+    new infoItem("Last name", "lastName", "", "name"),
+    new infoItem(
+      "Email address",
+      "email",
+      "We'll never share your email with anyone else.",
+      "email"
+    ),
+    new infoItem("Message", "message", "", "textarea"),
+  ];
+  if (!cForm) return;
+  const mapHtml = `<iframe
+  src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d6914.594858138874!2d-90.0607692400588!3d29.942122296793066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s1380%20Port%20of%20New%20Orleans%20Pl.%2C%20Next%20to%20Convention%20Center%2C%20New%20Orleans%2C%20LA%2070130!5e0!3m2!1siw!2sil!4v1669841431088!5m2!1siw!2sil"
+  width="400"
+  height="400"
+  style="border: 0"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  id="map"
+></iframe>`;
+  const mapBig = document.getElementById("mapBig");
+  const mapSmall = document.getElementById("mapSmall");
+  if (!mapBig || !mapSmall) return;
+  cForm.innerHTML = "";
+  for (let item of infoRequired) {
+    if (!window.matchMedia("(min-width: 992px)").matches) {
+      if (item.get("type") == "textarea") {
+        cForm.innerHTML += `<div class="mb-3">
+        <textarea
+          type=${item.get("type")}
+          class="form-control"
+          id="exampleInput${item.get("info")}"
+          aria-describedby="${item.get("name")}Help"
+          placeHolder="${item.get("name")}"
+        ></textarea>
+        <div id="${item.get("name")}Help" class="form-text">
+          ${item.get("helpMsg")}
+        </div>
+      </div>`;
+        break;
+      }
+      cForm.innerHTML += `<div class="mb-3">
+    <input
+      type=${item.get("type")}
+      class="form-control"
+      id="exampleInput${item.get("info")}"
+      aria-describedby="${item.get("name")}Help"
+      placeHolder="${item.get("name")}"
+    />
+    <div id="${item.get("name")}Help" class="form-text">
+      ${item.get("helpMsg")}
+    </div>
+  </div>`;
+    } else {
+      if (item.get("type") == "textarea") {
+        cForm.innerHTML += `<div class="mb-3">
+        <label for="exampleInput${item.get("info")}" class="form-label"
+      >${item.get("name")}</label
+    >
+        <textarea
+          type=${item.get("type")}
+          class="form-control"
+          id="exampleInput${item.get("info")}"
+          aria-describedby="${item.get("name")}Help"
+          
+        ></textarea>
+        <div id="${item.get("name")}Help" class="form-text">
+          ${item.get("helpMsg")}
+        </div>
+      </div>`;
+        break;
+      }
+      cForm.innerHTML += `<div class="mb-3">
+    <label for="exampleInput${item.get("info")}" class="form-label"
+      >${item.get("name")}</label
+    >
+    <input
+      type=${item.get("type")}
+      class="form-control"
+      id="exampleInput${item.get("info")}"
+      aria-describedby="${item.get("name")}Help"
+    />
+    <div id="${item.get("name")}Help" class="form-text">
+      ${item.get("helpMsg")}
+    </div>
+  </div>`;
+    }
+  }
+  if (window.matchMedia("(min-width: 992px)").matches) {
+    mapSmall.innerHTML = "";
+    mapBig.innerHTML = mapHtml;
+    document.getElementById("formCol").setAttribute("class", "col-8");
+  } else {
+    mapBig.innerHTML = "";
+    mapSmall.innerHTML = mapHtml;
+    document.getElementById("formCol").setAttribute("class", "col-10");
+  }
+}
+
+loadContactForm();
