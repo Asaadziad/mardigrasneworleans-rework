@@ -1,3 +1,22 @@
+.general-header {
+  background-image: url("/img/bg-img.jpg");
+  background-size: cover;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  & .generalTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: $pallet-primary;
+    border: 1px solid $pallet-white;
+    border-radius: 5px;
+    background-color: rgba(242, 242, 242, 0.7);
+  }
+}
 .btn {
   &.btn-primary {
     background-color: $pallet-primary;

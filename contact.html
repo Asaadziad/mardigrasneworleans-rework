@@ -34,8 +34,8 @@
         </div>
       </div>
     </nav>
-    <header>
-      <div class="aboutUsTitle"><h1>Contact Us</h1></div>
+    <header class="general-header">
+      <div class="generalTitle"><h1>Contact Us</h1></div>
     </header>
     <main>
       <div class="container">
@@ -43,7 +43,9 @@
           <div class="col-8" id="formCol">
             <form>
               <div id="cform"></div>
-              <button class="btn btn-primary mb-5">Submit</button>
+              <button class="btn btn-primary mb-5" onclick="submitContact()">
+                Submit
+              </button>
             </form>
           </div>
           <div class="col-4" id="mapBig">
@@ -61,6 +63,11 @@
         </div>
         <div class="row">
           <div id="mapSmall"></div>
+        </div>
+        <div class="row">
+          <div class="alert alert-success visually-hidden" id="form-filled">
+            Message sent successfully!
+          </div>
         </div>
       </div>
     </main>

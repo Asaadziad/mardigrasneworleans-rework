@@ -239,10 +239,11 @@ function showSlides(n) {
     .getAttribute("alt");
 }
 
-const infoItem = function (name, info, helpMsg, type) {
+const infoItem = function (name, info, helpMsg, errorMsg, type) {
   this.name = name;
   this.info = info;
   this.helpMsg = helpMsg;
+  this.errorMsg = errorMsg;
   this.type = type;
   this.get = function (propName) {
     return this[propName];
@@ -254,15 +255,16 @@ const infoItem = function (name, info, helpMsg, type) {
 function loadContactForm() {
   const cForm = document.getElementById("cform");
   const infoRequired = [
-    new infoItem("First name", "firstName", "", "name"),
-    new infoItem("Last name", "lastName", "", "name"),
+    new infoItem("First name", "firstName", "", "Invalid name!", "name"),
+    new infoItem("Last name", "lastName", "", "Invalid name!", "name"),
     new infoItem(
       "Email address",
       "email",
       "We'll never share your email with anyone else.",
+      "Invalid email",
       "email"
     ),
-    new infoItem("Message", "message", "", "textarea"),
+    new infoItem("Message", "message", "", "Please add a message!", "textarea"),
   ];
   if (!cForm) return;
   const mapHtml = `<iframe
@@ -286,13 +288,18 @@ function loadContactForm() {
         <textarea
           type=${item.get("type")}
           class="form-control"
-          id="exampleInput${item.get("info")}"
+          id="${item.get("info")}"
           aria-describedby="${item.get("name")}Help"
           placeHolder="${item.get("name")}"
         ></textarea>
         <div id="${item.get("name")}Help" class="form-text">
           ${item.get("helpMsg")}
         </div>
+        <div class="alert alert-danger visually-hidden" role="alert" id="${item.get(
+          "info"
+        )}-error">
+          ${item.get("errorMsg")}
+    </div>
       </div>`;
         break;
       }
@@ -300,46 +307,61 @@ function loadContactForm() {
     <input
       type=${item.get("type")}
       class="form-control"
-      id="exampleInput${item.get("info")}"
+      id="${item.get("info")}"
       aria-describedby="${item.get("name")}Help"
       placeHolder="${item.get("name")}"
     />
     <div id="${item.get("name")}Help" class="form-text">
       ${item.get("helpMsg")}
     </div>
+    <div class="alert alert-danger visually-hidden" role="alert" id="${item.get(
+      "info"
+    )}-error">
+      ${item.get("errorMsg")}
+</div>
   </div>`;
     } else {
       if (item.get("type") == "textarea") {
         cForm.innerHTML += `<div class="mb-3">
-        <label for="exampleInput${item.get("info")}" class="form-label"
+        <label for="${item.get("info")}" class="form-label"
       >${item.get("name")}</label
     >
         <textarea
           type=${item.get("type")}
           class="form-control"
-          id="exampleInput${item.get("info")}"
+          id="${item.get("info")}"
           aria-describedby="${item.get("name")}Help"
           
         ></textarea>
         <div id="${item.get("name")}Help" class="form-text">
           ${item.get("helpMsg")}
         </div>
+        <div class="alert alert-danger visually-hidden" role="alert" id="${item.get(
+          "info"
+        )}-error">
+          ${item.get("errorMsg")}
+    </div>
       </div>`;
         break;
       }
       cForm.innerHTML += `<div class="mb-3">
-    <label for="exampleInput${item.get("info")}" class="form-label"
+    <label for="${item.get("info")}" class="form-label"
       >${item.get("name")}</label
     >
     <input
       type=${item.get("type")}
       class="form-control"
-      id="exampleInput${item.get("info")}"
+      id="${item.get("info")}"
       aria-describedby="${item.get("name")}Help"
     />
     <div id="${item.get("name")}Help" class="form-text">
       ${item.get("helpMsg")}
     </div>
+    <div class="alert alert-danger visually-hidden" role="alert" id="${item.get(
+      "info"
+    )}-error">
+      ${item.get("errorMsg")}
+</div>
   </div>`;
     }
   }
@@ -351,6 +373,45 @@ function loadContactForm() {
     mapBig.innerHTML = "";
     mapSmall.innerHTML = mapHtml;
     document.getElementById("formCol").setAttribute("class", "col-10");
+  }
+}
+
+function submitContact() {
+  const firstNameValue = document.getElementById("firstName");
+  const lastNameValue = document.getElementById("lastName");
+  const emailValue = document.getElementById("email");
+  const msg = document.getElementById("message");
+  let errors = 0;
+  if (!msg || !firstNameValue || !lastNameValue || !emailValue) return;
+  document.getElementById("firstName-error").classList.add("visually-hidden");
+  document.getElementById("lastName-error").classList.add("visually-hidden");
+  document.getElementById("email-error").classList.add("visually-hidden");
+  document.getElementById("message-error").classList.add("visually-hidden");
+  document.getElementById("form-filled").classList.add("visually-hidden");
+  event.preventDefault();
+  if (firstNameValue.value == "") {
+    document
+      .getElementById("firstName-error")
+      .classList.remove("visually-hidden");
+    errors++;
+  }
+  if (lastNameValue.value == "") {
+    document
+      .getElementById("lastName-error")
+      .classList.remove("visually-hidden");
+    errors++;
+  }
+  if (!emailValue.value.includes("@")) {
+    document.getElementById("email-error").classList.remove("visually-hidden");
+    errors++;
+  }
+  if (msg.value == "") {
+    document
+      .getElementById("message-error")
+      .classList.remove("visually-hidden");
+  }
+  if (errors == 0) {
+    document.getElementById("form-filled").classList.remove("visually-hidden");
   }
 }
 
